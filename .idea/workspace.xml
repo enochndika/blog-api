@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9ad416e9-f3b0-4f1b-ab60-fe57198ab662" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iZJ7Nd6bST9oHZ6rcdf9TvSzYp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.13.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.11.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/controllers/post" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="/usr/lib/node_modules/prettier" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controllers/post" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/controllers" />
+      <recent name="$PROJECT_DIR$/validator" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes/post" />
+      <recent name="$PROJECT_DIR$/routes/commentChild" />
+      <recent name="$PROJECT_DIR$/routes/comment" />
+      <recent name="$PROJECT_DIR$/routes/user" />
+      <recent name="$PROJECT_DIR$/controllers/post" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ad416e9-f3b0-4f1b-ab60-fe57198ab662" name="Default Changelist" comment="" />
+      <created>1602109013963</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602109013963</updated>
+      <workItem from="1602109015945" duration="9127000" />
+      <workItem from="1602195087573" duration="7698000" />
+      <workItem from="1602272506385" duration="1880000" />
+      <workItem from="1602451600782" duration="6553000" />
+      <workItem from="1602536229192" duration="3000" />
+      <workItem from="1602539867346" duration="5911000" />
+      <workItem from="1602598646656" duration="19041000" />
+      <workItem from="1602720891222" duration="15329000" />
+      <workItem from="1602794066226" duration="16657000" />
+      <workItem from="1602892034726" duration="6479000" />
+      <workItem from="1602905079003" duration="12402000" />
+      <workItem from="1602992949523" duration="14952000" />
+      <workItem from="1603042619080" duration="6018000" />
+      <workItem from="1603096540826" duration="2990000" />
+      <workItem from="1603132608540" duration="1338000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="416" y="127" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603102978653">
+      <screen x="0" y="29" width="1366" height="699" />
+    </state>
+    <state x="416" y="127" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.29.1366.699@0.29.1366.699" timestamp="1603102978653" />
+    <state x="172" y="29" width="1012" height="699" key="SettingsEditor" timestamp="1602209230972">
+      <screen x="0" y="29" width="1366" height="699" />
+    </state>
+    <state x="172" y="29" width="1012" height="699" key="SettingsEditor/0.29.1366.699@0.29.1366.699" timestamp="1602209230972" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1602453622739">
+      <screen x="0" y="29" width="1366" height="699" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.29.1366.699@0.29.1366.699" timestamp="1602453622739" />
+  </component>
+</project>
