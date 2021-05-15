@@ -1,6 +1,6 @@
-import sequelize from '../utils/sequelize';
-import ReportChildComment from './reportChildComment';
 import { DataTypes, Model, Optional } from 'sequelize';
+import sequelize from '@/utils/sequelize';
+import ReportChildComment from './reportChildComment';
 
 interface ChildCommentAttributes {
   id: number;

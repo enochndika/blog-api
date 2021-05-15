@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ad416e9-f3b0-4f1b-ab60-fe57198ab662" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +50,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.13.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.11.8" />
+    <property name="javascript.nodejs.core.library.configured.version" value="15.14.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="15.3.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/controllers/post" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/lib/node_modules/prettier" />
-    <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -99,6 +101,7 @@
       <workItem from="1603042619080" duration="6018000" />
       <workItem from="1603096540826" duration="2990000" />
       <workItem from="1603132608540" duration="1338000" />
+      <workItem from="1621098386393" duration="309000" />
     </task>
     <servers />
   </component>
@@ -119,19 +122,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="416" y="127" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603102978653">
-      <screen x="0" y="29" width="1366" height="699" />
-    </state>
-    <state x="416" y="127" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.29.1366.699@0.29.1366.699" timestamp="1603102978653" />
-    <state x="172" y="29" width="1012" height="699" key="SettingsEditor" timestamp="1602209230972">
-      <screen x="0" y="29" width="1366" height="699" />
-    </state>
-    <state x="172" y="29" width="1012" height="699" key="SettingsEditor/0.29.1366.699@0.29.1366.699" timestamp="1602209230972" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1602453622739">
-      <screen x="0" y="29" width="1366" height="699" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.29.1366.699@0.29.1366.699" timestamp="1602453622739" />
   </component>
 </project>

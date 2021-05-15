@@ -10,7 +10,7 @@ cloud.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const uploadFile = async (req: Request, res: Response) => {
+export async function uploadFile(req: Request, res: Response) {
   const { path } = req.file;
   const uniqueFilename = new Date().toDateString();
   try {
@@ -27,4 +27,4 @@ export const uploadFile = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e);
   }
-};
+}

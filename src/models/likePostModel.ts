@@ -1,5 +1,5 @@
-import sequelize from '../utils/sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
+import sequelize from '@/utils/sequelize';
 
 interface LikePostAttributes {
   id: number;

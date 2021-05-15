@@ -5,7 +5,7 @@ import User from '@/models/userModel';
 import Post from '@/models/postModel';
 
 /* get all comments */
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -24,9 +24,9 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const commentsByPost = async (req: Request, res: Response) => {
+async function commentsByPost(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -68,9 +68,9 @@ export const commentsByPost = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const create = async (req: Request, res: Response) => {
+async function create(req: Request, res: Response) {
   try {
     const comment = new Comment({
       content: req.body.content,
@@ -82,9 +82,9 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e.message);
   }
-};
+}
 
-export const update = async (req: Request, res: Response) => {
+async function update(req: Request, res: Response) {
   try {
     const comment: any = await Comment.findOne({
       where: {
@@ -97,9 +97,9 @@ export const update = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   try {
     await Comment.destroy({
       where: {
@@ -110,9 +110,9 @@ export const remove = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const removeByAdmin = async (req: Request, res: Response) => {
+async function removeByAdmin(req: Request, res: Response) {
   try {
     await Comment.destroy({
       where: {
@@ -123,4 +123,6 @@ export const removeByAdmin = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
+
+export { remove, create, update, list, removeByAdmin, commentsByPost };

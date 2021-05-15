@@ -1,10 +1,10 @@
 {
-  "name": "blogger-api",
+  "name": "blog-api",
   "version": "1.0.0",
   "main": "index.js",
   "author": "enoch ndika",
   "scripts": {
-    "start": "nodemon src/app.ts",
+    "start": "nodemon src/bin/www.ts",
     "build": "tsc",
     "format": "prettier 'src/**/*.ts' --write",
     "lint": "eslint 'src/**/*.ts' --quiet --fix"

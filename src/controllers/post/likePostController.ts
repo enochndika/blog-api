@@ -1,12 +1,13 @@
 import { Response, Request } from 'express';
-import LikePost from '@/models/likePostModel';
 import { Op } from 'sequelize';
+
+import LikePost from '@/models/likePostModel';
 import Post from '@/models/postModel';
 import User from '@/models/userModel';
 import PostCategory from '@/models/postCategoryModel';
 
 /* get all likes */
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -25,10 +26,10 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
 /* get all likes by post id */
-export const read = async (req: Request, res: Response) => {
+async function read(req: Request, res: Response) {
   try {
     const data = await LikePost.findAll({
       where: {
@@ -39,9 +40,9 @@ export const read = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const create = async (req: Request, res: Response) => {
+async function create(req: Request, res: Response) {
   try {
     const getLike = await LikePost.findOne({
       where: {
@@ -66,10 +67,10 @@ export const create = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json(error.message);
   }
-};
+}
 
 /* get all posts liked by a user*/
-export const likesByUser = async (req: Request, res: Response) => {
+async function likesByUser(req: Request, res: Response) {
   const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -103,9 +104,9 @@ export const likesByUser = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   try {
     const like = await LikePost.findOne({
       where: {
@@ -123,4 +124,6 @@ export const remove = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e);
   }
-};
+}
+
+export { list, read, remove, create, likesByUser };

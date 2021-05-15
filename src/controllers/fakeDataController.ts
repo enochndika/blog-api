@@ -1,18 +1,19 @@
 import { Response, Request } from 'express';
+import faker from 'faker';
+import slugify from 'slugify';
+
 import User from '@/models/userModel';
 import Post from '@/models/postModel';
 import PostCategory from '@/models/postCategoryModel';
 import ChildComment from '@/models/childCommentModel';
 import Comment from '@/models/commentModel';
 import LikePost from '@/models/likePostModel';
-import faker from 'faker';
-import slugify from 'slugify';
 import pictures from '@/utils/pictures';
 import avatars from '@/utils/avatars';
 
 /* This controller allows to create fake data for dev environnement with faker.js*/
 
-export const createUser = async (req: Request, res: Response) => {
+async function createUser(req: Request, res: Response) {
   const randomAvatar = Math.floor(Math.random() * avatars.length);
   const data = avatars[randomAvatar];
   try {
@@ -28,9 +29,9 @@ export const createUser = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e);
   }
-};
+}
 
-export const createPost = async (req: Request, res: Response) => {
+async function createPost(req: Request, res: Response) {
   const randomNumber = Math.floor(Math.random() * pictures.length);
   const data = pictures[randomNumber];
   try {
@@ -51,9 +52,9 @@ export const createPost = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e.message);
   }
-};
+}
 
-export const createComment = async (req: Request, res: Response) => {
+async function createComment(req: Request, res: Response) {
   try {
     const comment = new Comment({
       content: faker.lorem.paragraph(),
@@ -65,9 +66,9 @@ export const createComment = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e);
   }
-};
+}
 
-export const createPostCategory = async (req: Request, res: Response) => {
+async function createPostCategory(req: Request, res: Response) {
   try {
     const postCategory = new PostCategory({
       name: faker.commerce.productName(),
@@ -77,9 +78,9 @@ export const createPostCategory = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e);
   }
-};
+}
 
-export const createChildComments = async (req: Request, res: Response) => {
+async function createChildComments(req: Request, res: Response) {
   try {
     const childComments = new ChildComment({
       commentId: 101,
@@ -91,9 +92,9 @@ export const createChildComments = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e.message);
   }
-};
+}
 
-export const createLikes = async (req: Request, res: Response) => {
+async function createLikes(req: Request, res: Response) {
   try {
     const like: any = new LikePost({
       postId: 35,
@@ -107,4 +108,13 @@ export const createLikes = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
+}
+
+export {
+  createChildComments,
+  createComment,
+  createLikes,
+  createPost,
+  createUser,
+  createPostCategory,
 };

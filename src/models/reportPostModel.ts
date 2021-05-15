@@ -1,5 +1,5 @@
 import { Model, Optional, DataTypes } from 'sequelize';
-import sequelize from '../utils/sequelize';
+import sequelize from '@/utils/sequelize';
 
 interface ReportPostAttributes {
   id: number;

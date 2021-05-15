@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import sequelize from '../utils/sequelize';
+import sequelize from '@/utils/sequelize';
 import ChildComment from './childCommentModel';
 import ReportComment from './reportComment';
 

@@ -1,16 +1,17 @@
 import { Request, Response } from 'express';
+import _ from 'underscore';
+import slugify from 'slugify';
+import { Op } from 'sequelize';
+
 import User from '@/models/userModel';
 import Post from '@/models/postModel';
 import PostCategory from '@/models/postCategoryModel';
 import LikePost from '@/models/likePostModel';
 import Comment from '@/models/commentModel';
-import _ from 'underscore';
-import slugify from 'slugify';
-import { Op } from 'sequelize';
 
 /* CRUD*/
 
-export const read = async (req: Request, res: Response) => {
+async function read(req: Request, res: Response) {
   try {
     const post = await Post.findOne({
       where: { slug: req.params.slug },
@@ -39,9 +40,9 @@ export const read = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const create = async (req: Request, res: Response) => {
+async function create(req: Request, res: Response) {
   try {
     const body = req.body;
     const bodySave = _.extend(body, {
@@ -54,9 +55,9 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e);
   }
-};
+}
 
-export const update = async (req: Request, res: Response) => {
+async function update(req: Request, res: Response) {
   const post: any = await Post.findByPk(req.params.postId);
   const { body } = req;
   try {
@@ -76,9 +77,9 @@ export const update = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -114,9 +115,9 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   const post: any = await Post.findByPk(req.params.postId);
   try {
     const user: any = await User.findByPk(req.params.userId);
@@ -129,20 +130,20 @@ export const remove = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const removeByAdmin = async (req: Request, res: Response) => {
+async function removeByAdmin(req: Request, res: Response) {
   try {
     await Post.destroy({ where: { id: req.params.postId } });
     res.status(204).json();
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
 /* FILTERS */
 
-export const postsByCategory = async (req: Request, res: Response) => {
+async function postsByCategory(req: Request, res: Response) {
   try {
     const data = await Post.findAll({
       where: {
@@ -173,9 +174,9 @@ export const postsByCategory = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e);
   }
-};
+}
 
-export const trendPosts = async (req: Request, res: Response) => {
+async function trendPosts(req: Request, res: Response) {
   const { page = 1, limit = 8 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -209,9 +210,9 @@ export const trendPosts = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const postsRelated = async (req: Request, res: Response) => {
+async function postsRelated(req: Request, res: Response) {
   const { page = 1, limit = 4 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -244,9 +245,9 @@ export const postsRelated = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const postsVip = async (req: Request, res: Response) => {
+async function postsVip(req: Request, res: Response) {
   try {
     const data = await Post.findAll({
       where: {
@@ -277,9 +278,9 @@ export const postsVip = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e);
   }
-};
+}
 
-export const search = async (req: Request, res: Response) => {
+async function search(req: Request, res: Response) {
   const { page = 1, limit = 8 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -328,9 +329,9 @@ export const search = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const postsByUserId = async (req: Request, res: Response) => {
+async function postsByUserId(req: Request, res: Response) {
   const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -366,4 +367,19 @@ export const postsByUserId = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
+}
+
+export {
+  remove,
+  list,
+  removeByAdmin,
+  create,
+  read,
+  update,
+  postsByUserId,
+  postsRelated,
+  postsByCategory,
+  postsVip,
+  search,
+  trendPosts,
 };

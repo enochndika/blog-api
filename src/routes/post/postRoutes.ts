@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as verify from '../../utils/verifyAccess';
+import * as verify from '@/utils/verifyAccess';
 import * as postController from '@/controllers/post/postController';
 const router = Router();
 

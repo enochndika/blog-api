@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import ReportComment from '@/models/reportComment';
 
 /* get all reports */
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -21,10 +21,10 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
 /* create a new report*/
-export const create = async (req: Request, res: Response) => {
+async function create(req: Request, res: Response) {
   try {
     const report = new ReportComment({
       commentId: req.params.commentId,
@@ -36,4 +36,6 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
+
+export { create, list };

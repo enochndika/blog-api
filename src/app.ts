@@ -39,14 +39,10 @@ app.use('/api/upload', routes.fileUploadRoutes);
 
 app.use('/api/like-posts', routes.likePostRoutes);
 app.use('/api/report-posts', routes.reportPostRoutes);
-app.use('/api/static-pages', routes.incrementPageRoutes);
 app.use('/api/child-comments', routes.childCommentsRoutes);
 
 app.use('/api/post-categories', routes.postCategoryRoutes);
 app.use('/api/report-comments', routes.reportCommentRoutes);
 app.use('/api/report-child-comments', routes.reportChildCommentRoutes);
 
-const port = process.env.PORT || 8000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export default app;

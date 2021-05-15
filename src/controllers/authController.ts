@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
 import User from '@/models/userModel';
 
-export const login = async (req: Request, res: Response) => {
+async function login(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
     const user: any = await User.findOne({
@@ -25,9 +25,9 @@ export const login = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
+}
 
-export const register = async (req: Request, res: Response) => {
+async function register(req: Request, res: Response) {
   try {
     const user = new User(req.body);
     await user.save();
@@ -35,4 +35,6 @@ export const register = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
+}
+
+export { login, register };

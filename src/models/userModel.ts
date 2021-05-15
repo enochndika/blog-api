@@ -1,3 +1,7 @@
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import { DataTypes, Model, Optional } from 'sequelize';
+
 import sequelize from '@/utils/sequelize';
 import Post from './postModel';
 import Comment from './commentModel';
@@ -6,9 +10,6 @@ import ReportPost from './reportPostModel';
 import ReportComment from './reportComment';
 import ReportChildComment from './reportChildComment';
 import LikePost from './likePostModel';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
-import { DataTypes, Model, Optional } from 'sequelize';
 
 interface UserAttributes {
   id: number;

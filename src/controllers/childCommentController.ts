@@ -1,9 +1,10 @@
 import { Response, Request } from 'express';
 import { Op } from 'sequelize';
+
 import ChildComment from '@/models/childCommentModel';
 import User from '@/models/userModel';
 
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -22,10 +23,10 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
 /* get all child comments by commentId*/
-export const read = async (req: Request, res: Response) => {
+async function read(req: Request, res: Response) {
   const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
 
   try {
@@ -55,9 +56,9 @@ export const read = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const update = async (req: Request, res: Response) => {
+async function update(req: Request, res: Response) {
   try {
     const childComment: any = await ChildComment.findByPk(req.params.id);
     childComment.content = req.body.content;
@@ -66,9 +67,9 @@ export const update = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const create = async (req: Request, res: Response) => {
+async function create(req: Request, res: Response) {
   try {
     const childComment = new ChildComment({
       content: req.body.content,
@@ -80,9 +81,9 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   try {
     await ChildComment.destroy({
       where: {
@@ -93,9 +94,9 @@ export const remove = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const removeByAdmin = async (req: Request, res: Response) => {
+async function removeByAdmin(req: Request, res: Response) {
   try {
     await ChildComment.destroy({
       where: {
@@ -106,4 +107,6 @@ export const removeByAdmin = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
+
+export { removeByAdmin, list, update, create, remove, read };

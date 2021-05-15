@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
 import User from '@/models/userModel';
 
-export const read = async (req: Request, res: Response) => {
+async function read(req: Request, res: Response) {
   try {
     const user = await User.findOne({
       where: {
@@ -19,9 +19,9 @@ export const read = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const update = async (req: Request, res: Response) => {
+async function update(req: Request, res: Response) {
   const { fullName } = req.body;
   try {
     const user: any = await User.findByPk(req.params.id);
@@ -32,9 +32,9 @@ export const update = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const list = async (req: Request, res: Response) => {
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -54,22 +54,24 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   try {
     await User.destroy({ where: { id: req.params.id } });
     res.status(204).json();
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const removeByAdmin = async (req: Request, res: Response) => {
+async function removeByAdmin(req: Request, res: Response) {
   try {
     await User.destroy({ where: { id: req.params.id } });
     res.status(204).json();
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
+
+export { removeByAdmin, list, update, remove, read };

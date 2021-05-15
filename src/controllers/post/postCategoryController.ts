@@ -1,9 +1,10 @@
 import { Response, Request } from 'express';
-import PostCategory from '@/models/postCategoryModel';
-import Post from '@/models/postModel';
 import { Op } from 'sequelize';
 
-export const create = async (req: Request, res: Response) => {
+import PostCategory from '@/models/postCategoryModel';
+import Post from '@/models/postModel';
+
+async function create(req: Request, res: Response) {
   try {
     const category = new PostCategory(req.body);
     await category.save();
@@ -11,9 +12,9 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const update = async (req: Request, res: Response) => {
+async function update(req: Request, res: Response) {
   try {
     const category: any = await PostCategory.findByPk(req.params.id);
     category.name = req.body.name;
@@ -21,8 +22,9 @@ export const update = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
-export const list = async (req: Request, res: Response) => {
+}
+
+async function list(req: Request, res: Response) {
   const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -40,9 +42,9 @@ export const list = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
 
-export const remove = async (req: Request, res: Response) => {
+async function remove(req: Request, res: Response) {
   try {
     const category: any = await PostCategory.findByPk(req.params.id);
     const post = await Post.findAll({
@@ -63,4 +65,6 @@ export const remove = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(500).json(e.message);
   }
-};
+}
+
+export { create, remove, list, update };

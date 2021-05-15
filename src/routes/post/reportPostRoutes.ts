@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import * as verify from '../../utils/verifyAccess';
-import * as reportPostController from '../../controllers/post/reportPostController';
+import * as verify from '@/utils/verifyAccess';
+import * as reportPostController from '@/controllers/post/reportPostController';
 
 const router = Router();
 

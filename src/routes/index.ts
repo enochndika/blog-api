@@ -7,7 +7,6 @@ import fileUploadRoutes from '@/routes/fileUploadRoutes';
 import likePostRoutes from '@/routes/post/likePostsRoutes';
 import reportPostRoutes from '@/routes/post/reportPostRoutes';
 import childCommentsRoutes from '@/routes/childCommentRoutes';
-import incrementPageRoutes from '@/routes/incrementPageRoutes';
 import reportCommentRoutes from '@/routes/reportCommentRoutes';
 import postCategoryRoutes from '@/routes/post/postCategoryRoutes';
 import reportChildCommentRoutes from '@/routes/reportChildCommentRoutes';
@@ -24,6 +23,5 @@ export {
   postCategoryRoutes,
   childCommentsRoutes,
   reportCommentRoutes,
-  incrementPageRoutes,
   reportChildCommentRoutes,
 };
