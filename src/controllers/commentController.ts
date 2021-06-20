@@ -1,8 +1,9 @@
-import { Response, Request } from 'express';
 import { Op } from 'sequelize';
-import Comment from '@/models/commentModel';
+import { Response, Request } from 'express';
+
 import User from '@/models/userModel';
 import Post from '@/models/postModel';
+import Comment from '@/models/commentModel';
 
 /* get all comments */
 async function list(req: Request, res: Response) {

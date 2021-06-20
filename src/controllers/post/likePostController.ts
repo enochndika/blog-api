@@ -1,27 +1,27 @@
-import { Response, Request } from 'express';
 import { Op } from 'sequelize';
+import { Response, Request } from 'express';
 
-import LikePost from '@/models/likePostModel';
 import Post from '@/models/postModel';
 import User from '@/models/userModel';
+import LikePost from '@/models/likePostModel';
 import PostCategory from '@/models/postCategoryModel';
 
 /* get all likes */
 async function list(req: Request, res: Response) {
-  const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 6 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
 
     const { count, rows: data } = await LikePost.findAndCountAll({
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);
@@ -71,7 +71,7 @@ async function create(req: Request, res: Response) {
 
 /* get all posts liked by a user*/
 async function likesByUser(req: Request, res: Response) {
-  const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 10 }: { page?: number; limit?: number } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
 
@@ -93,13 +93,13 @@ async function likesByUser(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);

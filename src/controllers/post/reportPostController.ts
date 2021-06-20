@@ -3,20 +3,20 @@ import ReportPost from '@/models/reportPostModel';
 
 /* get all reports */
 async function list(req: Request, res: Response) {
-  const { page = 1, limit = 6 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 6 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
 
     const { count, rows: data } = await ReportPost.findAndCountAll({
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);

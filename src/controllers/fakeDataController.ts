@@ -1,15 +1,15 @@
-import { Response, Request } from 'express';
 import faker from 'faker';
 import slugify from 'slugify';
+import { Response, Request } from 'express';
 
+import avatars from '@/utils/avatars';
 import User from '@/models/userModel';
 import Post from '@/models/postModel';
-import PostCategory from '@/models/postCategoryModel';
-import ChildComment from '@/models/childCommentModel';
+import pictures from '@/utils/pictures';
 import Comment from '@/models/commentModel';
 import LikePost from '@/models/likePostModel';
-import pictures from '@/utils/pictures';
-import avatars from '@/utils/avatars';
+import PostCategory from '@/models/postCategoryModel';
+import ChildComment from '@/models/childCommentModel';
 
 /* This controller allows to create fake data for dev environnement with faker.js*/
 

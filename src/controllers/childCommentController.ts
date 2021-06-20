@@ -1,5 +1,5 @@
-import { Response, Request } from 'express';
 import { Op } from 'sequelize';
+import { Response, Request } from 'express';
 
 import ChildComment from '@/models/childCommentModel';
 import User from '@/models/userModel';

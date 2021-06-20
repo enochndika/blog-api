@@ -1,5 +1,5 @@
-import { Response, Request } from 'express';
 import { Op } from 'sequelize';
+import { Response, Request } from 'express';
 
 import PostCategory from '@/models/postCategoryModel';
 import Post from '@/models/postModel';

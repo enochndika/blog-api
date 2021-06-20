@@ -1,6 +1,6 @@
-import { Response, Request } from 'express';
 import fs from 'fs';
 import cloudinary from 'cloudinary';
+import { Response, Request } from 'express';
 
 const cloud = cloudinary.v2;
 

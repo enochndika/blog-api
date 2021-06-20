@@ -1,14 +1,16 @@
-import express from 'express';
-import morgan from 'morgan';
-import bodyParser from 'body-parser';
-import helmet from 'helmet';
-import 'module-alias/register';
 import cors from 'cors';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import express from 'express';
+import 'module-alias/register';
 import * as dotenv from 'dotenv';
-import connect from './utils/dbConnection';
+import bodyParser from 'body-parser';
+
 import * as routes from './routes/index';
+import connect from './utils/dbConnection';
 
 connect();
+
 dotenv.config();
 
 const app = express();

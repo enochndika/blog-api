@@ -1,13 +1,13 @@
-import { Request, Response } from 'express';
 import _ from 'underscore';
 import slugify from 'slugify';
 import { Op } from 'sequelize';
+import { Request, Response } from 'express';
 
 import User from '@/models/userModel';
 import Post from '@/models/postModel';
-import PostCategory from '@/models/postCategoryModel';
-import LikePost from '@/models/likePostModel';
 import Comment from '@/models/commentModel';
+import LikePost from '@/models/likePostModel';
+import PostCategory from '@/models/postCategoryModel';
 
 /* CRUD*/
 
@@ -80,7 +80,7 @@ async function update(req: Request, res: Response) {
 }
 
 async function list(req: Request, res: Response) {
-  const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 10 }: { page?: number; limit?: number } = req.query;
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
 
@@ -103,7 +103,7 @@ async function list(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
@@ -177,7 +177,7 @@ async function postsByCategory(req: Request, res: Response) {
 }
 
 async function trendPosts(req: Request, res: Response) {
-  const { page = 1, limit = 8 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 8 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -199,13 +199,13 @@ async function trendPosts(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);
@@ -213,7 +213,7 @@ async function trendPosts(req: Request, res: Response) {
 }
 
 async function postsRelated(req: Request, res: Response) {
-  const { page = 1, limit = 4 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 4 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -237,7 +237,7 @@ async function postsRelated(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
     });
     res.json({
       data,
@@ -281,7 +281,7 @@ async function postsVip(req: Request, res: Response) {
 }
 
 async function search(req: Request, res: Response) {
-  const { page = 1, limit = 8 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 8 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -318,13 +318,13 @@ async function search(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data: data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);
@@ -332,7 +332,7 @@ async function search(req: Request, res: Response) {
 }
 
 async function postsByUserId(req: Request, res: Response) {
-  const { page = 1, limit = 10 }: { page?: any; limit?: any } = req.query;
+  const { page = 1, limit = 10 }: { page?: number; limit?: number } = req.query;
 
   try {
     const sortBy = req.query.sortBy ? req.query.sortBy : 'id';
@@ -356,13 +356,13 @@ async function postsByUserId(req: Request, res: Response) {
         },
       ],
       order: [[sortBy.toString(), 'DESC']],
-      limit: parseInt(limit, 10),
+      limit: parseInt(String(limit), 10),
       offset: (page - 1) * limit,
     });
     res.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: parseInt(page, 10),
+      currentPage: parseInt(String(page), 10),
     });
   } catch (e) {
     res.status(500).json(e.message);
